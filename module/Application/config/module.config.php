@@ -53,9 +53,29 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'invokables' => array(
-            'ExampleService' => 'Application\Service\ExampleService'
+        // 'invokables' => array(
+        //     'ExampleService' => 'Application\Service\ExampleService'
 
+        // ),
+        'services' => array(
+            'categories' => array(
+                'barter',
+                'beauty',
+                'clothing',
+                'computer',
+                'entertainment',
+                'free',
+                'garden',
+                'general',
+                'health',
+                'household',
+                'phones',
+                'property',
+                'sporting',
+                'tools',
+                'transportation',
+                'wanted'
+            )
         ),
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
