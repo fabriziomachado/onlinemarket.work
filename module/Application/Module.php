@@ -30,6 +30,13 @@ class Module
         $vm->setVariable("categories", "CATEGORY LIST");
     }
 
+    public function getServiceConfig()
+    {
+        return ['invokables' => 
+                  ['ExampleService' => 'Application\Service\ExampleService']
+               ];
+    }
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
