@@ -20,7 +20,7 @@ class Module
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
 
-        $eventManager->attach( MvcEvent::EVENT_DISPATCH , array($this,'onDispatch'), 100 );
+        $eventManager->attach( MvcEvent::EVENT_DISPATCH , [$this, 'onDispatch'], 100 );
 
     }
 
