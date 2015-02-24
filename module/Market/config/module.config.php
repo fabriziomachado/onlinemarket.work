@@ -40,7 +40,8 @@ return array(
 
     'controllers' => array(
         'invokables' => array(
-            'market-index-controller' => 'Market\Controller\IndexController'
+            'market-index-controller' => 'Market\Controller\IndexController',
+            'market-view-controller' => 'Market\Controller\ViewController'
         ),
     ),
     
