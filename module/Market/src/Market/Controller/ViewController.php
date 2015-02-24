@@ -8,6 +8,22 @@ class ViewController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel( ['category' => 'CATEGORY POSTINGS'] );
+    	$category = $this->params()->fromQuery("category");
+
+        return new ViewModel( ['category' => $category ] );
     }
+
+    public function itemAction()
+    {
+    	$itemId = $this->params()->fromQuery("itemId");
+
+    	if(!$itemId)
+    	{
+    		$this->flashMessenger()->addMessage("Item not found!");
+    		$this->redirect()->toRoute('market');
+    	} 
+
+        return new ViewModel( ['itemId' => $itemId ] );
+    }
+
 }
