@@ -9,8 +9,23 @@ return array(
                 'options' => array(
                     'route'    => '/market',
                     'defaults' => array(
-                        'controller' => 'Market\Controller\Index',
+                        'controller' => 'market-index-controller',
                         'action'     => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:controller[/:action]]',
+                            'constraints' => array(
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -25,7 +40,7 @@ return array(
 
     'controllers' => array(
         'invokables' => array(
-            'Market\Controller\Index' => 'Market\Controller\IndexController'
+            'market-index-controller' => 'Market\Controller\IndexController'
         ),
     ),
     

@@ -9,9 +9,11 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+        return new ViewModel();
+    }
 
-    	// $exampleService = $this->getServiceLocator()->get('ExampleService');
-
+    public function fooAction()
+    {
         return new ViewModel();
     }
 }
