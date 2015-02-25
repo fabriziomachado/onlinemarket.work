@@ -41,8 +41,9 @@ return array(
                             'main' => [
                                 'type'    => 'Segment',
                                 'options' => [
-                                    'route'    => '/main[/:category]',
+                                    'route'    => '/main[/][:category]',
                                     'defaults' => [
+                                        'controller' => 'market-view-controller',
                                         'action' => 'index'
                                     ],
                                 ],
@@ -51,7 +52,7 @@ return array(
                             'item' => [
                                 'type'    => 'Segment',
                                 'options' => [
-                                    'route'    => '/item[/:itemId]',
+                                    'route'    => '/item[/][:itemId]',
                                     'defaults' => [
                                         'action' => 'item'
                                     ],
