@@ -2,125 +2,82 @@
 
 return array(
 
-    'router' => array(
-        'routes' => array(
+    'router' => [
+        'routes' => [
 
-            'home' => array(
+            'home' => [
                 'type' => 'Literal',
-                'options' => array(
+                'options' => [
                     'route'    => '/',
-                    'defaults' => array(
+                    'defaults' => [
                         'controller' => 'market-index-controller',
                         'action'     => 'index',
-                    ),
-                ),
-            ),
+                    ],
+                ],
+            ], // end route home
 
-            'market' => array(
+            'market' => [
                 'type' => 'Literal',
-                'options' => array(
+                'options' => [
                     'route'    => '/market',
-                    'defaults' => array(
+                    'defaults' => [
                         'controller' => 'market-index-controller',
                         'action'     => 'index',
-                    ),
-                ),
-            ),
-
-            'market-view' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route'    => '/market/view',
-                    'defaults' => array(
-                        'controller' => 'market-view-controller',
-                        'action'     => 'index',
-                    ),
-                ),
+                    ],
+                ],
                 'may_terminate' => true,
-                'child_routes' => array(
+                'child_routes' => [
+                    'view' => [
+                        'type' => 'Literal',
+                         'options' => [
+                            'route'    => '/view',
+                            'defaults' => [
+                                'controller' => 'market-view-controller',
+                                'action' => 'index',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                        'child_routes' => [
+                            'main' => [
+                                'type'    => 'Segment',
+                                'options' => [
+                                    'route'    => '/main[/:category]',
+                                    'defaults' => [
+                                        'action' => 'index'
+                                    ],
+                                ],
+                            ], # end main route 
 
-                    // 'default' => array(
-                    //     'type'    => 'Segment',
-                    //     'options' => array(
-                    //         'route'    => '/[:controller[/:action]]',
-                    //         'constraints' => array(
-                    //             'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                    //             'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                    //         ),
-                    //         'defaults' => array(
-                    //         ),
-                    //     ),
-                    // ), // end default
+                            'item' => [
+                                'type'    => 'Segment',
+                                'options' => [
+                                    'route'    => '/item[/:itemId]',
+                                    'defaults' => [
+                                        'action' => 'item'
+                                    ],
+                                    'constraints' => [
+                                        'itemId' => '[0-9]*'
+                                    ],
+                                ],
+                            ], # end item route
+                        ], # end child_routes for view
+                    ], # end view route
+                
+                    'post' => [
+                        'type' => 'Literal',
+                        'options' => [
+                            'route'    => '/post',
+                            'defaults' => [
+                                'controller' => 'market-post-controller',
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],// end post route
+                ], # end child_routes for market
+            ], # end market route
 
-
-                    'index' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/main[/:category]',
-                            'defaults' => array(
-                                'action' => 'index'
-                            ),
-                        ),
-                    ), // end index route                    
-
-                    'item' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/item[/:itemId]',
-                            'defaults' => array(
-                                'action' => 'item'
-                            ),
-                            'constraints' => array(
-                                'itemId' => '[0-9]*'
-                            ),
-                        ),
-                    ), // end index item  
-
-                ),
-               
-            ),
-
-            'market-post' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route'    => '/market/post',
-                    'defaults' => array(
-                        'controller' => 'market-post-controller',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-
-
-            // 'market' => array(
-            //     'type' => 'Zend\Mvc\Router\Http\Literal', // ou   'type' => 'Literal',
-            //     'options' => array(
-            //         'route'    => '/market',
-            //         'defaults' => array(
-            //             'controller' => 'market-index-controller',
-            //             'action'     => 'index',
-            //         ),
-
-            //     ), 
-            //     'may_terminate' => true,
-            //     'child_routes' => array(
-            //         'default' => array(
-            //             'type'    => 'Segment',
-            //             'options' => array(
-            //                 'route'    => '/[:controller[/:action]]',
-            //                 'constraints' => array(
-            //                     'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-            //                     'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-            //                 ),
-            //                 'defaults' => array(
-            //                 ),
-            //             ),
-            //         ),
-            //     ),
-            // ),
-
-        ),
-    ),
+        ], # end routes
+    ], # end router
     
     'view_manager' => array(
         'template_path_stack' => array(
