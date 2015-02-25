@@ -54,6 +54,17 @@ return array(
                
             ),
 
+            'market-post' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/market/post',
+                    'defaults' => array(
+                        'controller' => 'market-post-controller',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+
 
             // 'market' => array(
             //     'type' => 'Zend\Mvc\Router\Http\Literal', // ou   'type' => 'Literal',
