@@ -4,8 +4,21 @@ return array(
 
     'router' => array(
         'routes' => array(
+
+
+            'home' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/',
+                    'defaults' => array(
+                        'controller' => 'market-index-controller',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+
             'market' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Zend\Mvc\Router\Http\Literal', // ou   'type' => 'Literal',
                 'options' => array(
                     'route'    => '/market',
                     'defaults' => array(
