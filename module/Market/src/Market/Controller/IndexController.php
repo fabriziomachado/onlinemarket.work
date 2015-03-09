@@ -7,16 +7,23 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+
+    private $messages;
+
+    public function __construct() {
+        $this->messages = ['Welcome to the Online Market'];
+    }
+
     public function indexAction()
     {
 
-    	$messages = ['Welcome to the Online Market'];
+
     	if( $this->flashMessenger()->hasMessages() )
     	{
-    		$messages = $this->flashMessenger()->getMessages();
+    		$this->messages = $this->flashMessenger()->getMessages();
     	} 
 
-        return ['messages' => $messages ]; 
+        return ['messages' => $this->messages ]; 
 
     }
 
