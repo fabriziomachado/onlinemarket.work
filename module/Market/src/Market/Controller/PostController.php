@@ -16,7 +16,11 @@ class PostController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel(   array('categories' => $this->categories ) );
+    	$view = new ViewModel( ['categories' => $this->categories] );
+    	$view->setTemplate("market/post/invalid.phtml");
+
+        return $view;
+
     }
 
 }
