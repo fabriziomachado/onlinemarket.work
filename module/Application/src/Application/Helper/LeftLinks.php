@@ -5,17 +5,29 @@ use Zend\View\Helper\AbstractHelper;
 
 class LeftLinks extends AbstractHelper
 {
+
 	public function __invoke(array $values, $urlPrefix)
 	{
-		$html = '<ul style="list-style-type: none">' . PHP_EOL;
+
+//echo $this->request->params()->fromRoute("category");
+//$category = $params->params()->fromRoute("category") ?: 'undefined category';
+		
+
+// Via the plugin manager:
+$pluginManager = $view->getHelperPluginManager();
+//$helper        = $pluginManager->get('lowercase');
+
+
+		$html = '<div class="list-group">' . PHP_EOL;
 		foreach ($values as $item) {
-			$html .= "<li>";
-			$html .= sprintf("<a href='%s/%s'>%s</a>", $urlPrefix, $item, $item);
-			$html .= "</li>". PHP_EOL;
+
+			$html .= sprintf("<a href='%s/%s' class='list-group-item'>%s</a>", $urlPrefix, $item, $item);
 		}
-		$html .= '</ul>'. PHP_EOL;
+		$html .= '</div>'. PHP_EOL;
 
 		return $html;
 	}
+
+
 
 }
