@@ -63,7 +63,11 @@
         <div class="container">
             <div class="col-lg-2">
                 <h3>Categories</h3>
-                <?php echo $this->leftLinks($this->categories, $this->basePath("market/view/main") ); ?>
+                <?php echo $this->leftLinks($this->categories,  
+                                            'barter',
+                                            //$this->request->params()->fromRoute('category') ,
+                                            $this->basePath("market/view/main") 
+                                            ); ?>
             </div>
             <div class="col-lg-8">
                 <?php echo $this->content; ?>            
