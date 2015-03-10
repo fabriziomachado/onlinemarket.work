@@ -28,9 +28,9 @@ return array(
                 'may_terminate' => true,
                 'child_routes' => [
                     'view' => [
-                        'type' => 'Literal',
+                        'type' => 'Segment',
                          'options' => [
-                            'route'    => '/view',
+                            'route'    => '/view[/]',
                             'defaults' => [
                                 'controller' => 'market-view-controller',
                                 'action' => 'index',
@@ -41,9 +41,8 @@ return array(
                             'main' => [
                                 'type'    => 'Segment',
                                 'options' => [
-                                    'route'    => '/main[/][:category]',
+                                    'route'    => '[/]main[/][:category]',
                                     'defaults' => [
-                                        'controller' => 'market-view-controller',
                                         'action' => 'index'
                                     ],
                                 ],
@@ -52,7 +51,7 @@ return array(
                             'item' => [
                                 'type'    => 'Segment',
                                 'options' => [
-                                    'route'    => '/item[/][:itemId]',
+                                    'route'    => '[/]item[/][:itemId]',
                                     'defaults' => [
                                         'action' => 'item'
                                     ],
@@ -61,6 +60,7 @@ return array(
                                     ],
                                 ],
                             ], # end item route
+
                         ], # end child_routes for view
                     ], # end view route
                 
