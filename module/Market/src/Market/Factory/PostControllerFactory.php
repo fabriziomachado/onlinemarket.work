@@ -12,14 +12,15 @@ class PostControllerFactory implements FactoryInterface
         
         //$categories = $controllerManager->getServiceLocator()->get('categories');
 
-   		 $allServices = $controllerManager->getServiceLocator();
-   		 $sm = $allServices->get('ServiceManager');
- 		 $categories = $sm->get('categories');
+   		$allServices = $controllerManager->getServiceLocator();
+   		$sm = $allServices->get('ServiceManager');
+ 		  $categories = $sm->get('categories');
 
-        $postController = new \Market\Controller\PostController();
-        $postController->setCategories($categories);
+      $postController = new \Market\Controller\PostController();
+      $postController->setCategories($categories);
+      $postController->setPostForm( $sm->get('market-post-form'));
 
-        return $postController;
+      return $postController;
     }
 
 }

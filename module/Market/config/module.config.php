@@ -79,23 +79,31 @@ return array(
 
         ], # end routes
     ], # end router
-    
-    'view_manager' => array(
-        'template_path_stack' => array(
-            __DIR__ . '/../view',
-        ),
-    ),
+   
 
     'controllers' => array(
         'invokables' => array(
             'market-index-controller' => 'Market\Controller\IndexController',
-            'market-view-controller' => 'Market\Controller\ViewController'
+            'market-view-controller'  => 'Market\Controller\ViewController'
         ),
         'factories' => array(
             'market-post-controller' => 'Market\Factory\PostControllerFactory'
         ),
         'aliases' => array(
             'alt' => 'market-view-controller'
+        ),
+    ),
+
+    'service_manager' => array(
+        'factories' => array(
+            'market-post-form' => 'Market\Factory\PostFormFactory'
+        ),
+    ),
+
+
+    'view_manager' => array(
+        'template_path_stack' => array(
+            __DIR__ . '/../view',
         ),
     ),
     
