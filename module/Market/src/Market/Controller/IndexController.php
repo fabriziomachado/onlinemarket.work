@@ -11,7 +11,7 @@ class IndexController extends AbstractActionController
     private $messages;
 
     public function __construct() {
-        $this->messages = ['Welcome to the Online Market'];
+        $this->messages = ['Welcome to Online Market ZF2'];
     }
 
     public function indexAction()

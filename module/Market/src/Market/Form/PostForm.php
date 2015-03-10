@@ -25,7 +25,7 @@ class Postform extends Form
 		 $title = new Text('title');
 		 $title->setLabel("Title")
 		 		->setAttributes(
-		 			array('size'=> 25, 'maxLenght'=> 128)
+		 			['size'=> 25, 'maxLenght'=> 128, 'placeholder' => 'Digite o título']
 		 		);
 
 		 $submit = new Submit('submit');
