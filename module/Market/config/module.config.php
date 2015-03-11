@@ -65,9 +65,9 @@ return array(
                     ], # end view route
                 
                     'post' => [
-                        'type' => 'Literal',
+                        'type' => 'Segment',
                         'options' => [
-                            'route'    => '/post',
+                            'route'    => '/post[/]',
                             'defaults' => [
                                 'controller' => 'market-post-controller',
                                 'action'     => 'index',
