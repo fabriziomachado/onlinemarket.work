@@ -17,9 +17,9 @@ return array(
             ], // end route home
 
             'market' => [
-                'type' => 'Literal',
+                'type' => 'segment',
                 'options' => [
-                    'route'    => '/market',
+                    'route'    => '/market[/]',
                     'defaults' => [
                         'controller' => 'market-index-controller',
                         'action'     => 'index',
@@ -30,7 +30,7 @@ return array(
                     'view' => [
                         'type' => 'Segment',
                          'options' => [
-                            'route'    => '/view[/]',
+                            'route'    => 'view[/]',
                             'defaults' => [
                                 'controller' => 'market-view-controller',
                                 'action' => 'index',
