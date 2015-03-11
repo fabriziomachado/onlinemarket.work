@@ -41,7 +41,7 @@ return array(
                             'main' => [
                                 'type'    => 'Segment',
                                 'options' => [
-                                    'route'    => '[/]main[/][:category]',
+                                    'route'    => 'main[/][:category]',
                                     'defaults' => [
                                         'action' => 'index'
                                     ],
@@ -51,7 +51,7 @@ return array(
                             'item' => [
                                 'type'    => 'Segment',
                                 'options' => [
-                                    'route'    => '[/]item[/][:itemId]',
+                                    'route'    => 'item[/][:itemId]',
                                     'defaults' => [
                                         'action' => 'item'
                                     ],
