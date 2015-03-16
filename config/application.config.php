@@ -6,7 +6,8 @@ return array(
         'Market',
         'Search',
         'ZendDeveloperTools',
-        'ZfMaintenance'
+        'ZfMaintenance',
+        'BjyProfiler'
     ),
 
     // These are various options for the listeners attached to the ModuleManager
@@ -24,6 +25,7 @@ return array(
         // modules are loaded. These effectively override configuration
         // provided by modules themselves. Paths may use GLOB_BRACE notation.
         'config_glob_paths' => array(
+            // __DIR__ . '/autoload/{,*.}{global,local}.php',
             'config/autoload/{,*.}{global,local}.php',
         ),
 

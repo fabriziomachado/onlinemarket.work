@@ -10,6 +10,19 @@ looking to get their feet wet with ZF2.
 Installation
 ------------
 
+Using docker image
+-------------------
+
+    $ sudo docker exec zf php ../../vendor/bin/classmap_generator.php
+    $ sudo docker exec zf tail -f /var/log/nginx/localhost.com-error.log
+
+    $ docker run -v ~/.docker-volumes/db/mysql:/var/lib/mysql --name db-mysql -e MYSQL_ROOT_PASSWWORD=root -d mysql
+    $ sudo docker exec -it db-mysql mysql -uroot -proot
+    $ sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' db-mysql
+
+    $ sudo docker exec zf php composer.phar require bjyoungblood/bjy-profiler:dev-master
+
+
 Using Composer (recommended)
 ----------------------------
 The recommended way to get a working copy of this project is to clone the repository
@@ -75,3 +88,4 @@ project and you should be ready to go! It should look something like below:
             Allow from all
         </Directory>
     </VirtualHost>
+

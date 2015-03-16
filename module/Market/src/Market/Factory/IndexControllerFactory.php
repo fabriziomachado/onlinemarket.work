@@ -5,7 +5,7 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 
-class PostControllerFactory implements FactoryInterface
+class IndexControllerFactory implements FactoryInterface
 {	
 	public function createService(ServiceLocatorInterface $controllerManager)
     {
@@ -14,15 +14,15 @@ class PostControllerFactory implements FactoryInterface
 
    		$allServices = $controllerManager->getServiceLocator();
    		$sm = $allServices->get('ServiceManager');
- 		  $categories = $sm->get('categories');
+ 		  
+      $categories = $sm->get('categories');
 
-      $postController = new \Market\Controller\PostController();
-      $postController->setCategories($categories);
-      $postController->setPostForm($sm->get('market-post-form'));
+      $indexController = new \Market\Controller\IndexController();
+      //$indexController->setCategories($categories);
+      //$indexController->setPostForm($sm->get('market-post-form'));
+      $indexController->setListingsTable($sm->get('listings-table'));
 
-      $postController->setListingsTable($sm->get('listings-table'));
-
-      return $postController;
+      return $indexController;
     }
 
 }
