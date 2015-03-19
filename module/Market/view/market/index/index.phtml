@@ -1,6 +1,14 @@
-<h1>Hello from Market/index</h1>
 <?php if(isset($this->messages) && count($this->messages) ): ?>
 	<div class="alert alert-danger" role="alert">
 		<?php echo $this->htmlList($this->messages); ?>
 	</div>
 <?php endif; ?>
+
+<header class="jumbotron hero-spacer">
+    <h1>Online Market</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid sim.</p>
+    <p><a class="btn btn-primary btn-large">Call to action!</a>
+    </p>
+</header>
+
+<?php  echo $this->partial('market/partials/item',['item' => $this->item ]) ?>

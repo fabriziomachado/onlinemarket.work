@@ -1,0 +1,44 @@
+
+<?php if($item): ?>
+	<div class="thumbnail">
+		<?php if($item->photo_filename): ?>
+	   		<img src="<?php echo $item->photo_filename; ?>" class="img-responsive" />
+	    <?php endif; ?>	
+	    <div class="caption-full">
+	        <h4 class="pull-right">$<?php echo  (float) $item->price; ?></h4>
+	        <h4><a href="<?php echo $this->url('market/view/item', ['itemId' => (int) $item->listings_id ]); ?>">
+	        	<?php echo  $this->escapeHtml(ucwords($item->title)); ?></a>
+	        </h4>
+	        <p><?php echo  $this->escapeHtml($item->description); ?></p>
+	    </div>
+	</div>
+
+
+
+
+	<div style="width:250px;float:left;">
+
+	 	<span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+		
+	</div>
+
+	<div style="width:250px;float:left;margin:20px">
+		<address>
+		  <strong><?php echo  $this->escapeHtml($item->contact_name); ?></strong><br>
+		   <?php echo  $this->escapeHtml($item->city); ?>, <?php echo  $this->escapeHtml($item->country); ?><br>
+		  <abbr title="Phone">P:</abbr> <?php echo  $this->escapeHtml($item->contact_phone); ?>
+		</address>
+		<address>
+		  <strong><?php echo  $this->escapeHtml($item->contact_name); ?></strong><br>
+		  <a href="mailto:#"><?php echo  $this->escapeHtml($item->contact_email); ?></a>
+		</address>
+
+		<h4>Posting details</h4>
+		<p><?php echo  $this->escapeHtml($item->date_created); ?></p>
+		<p>Price: <?php echo  $this->escapeHtml($item->price); ?></p>
+		<p>City: <?php echo  $this->escapeHtml($item->city); ?>, <?php echo  $this->escapeHtml($item->country); ?></p>
+	</div>
+<?php else: ?>
+	No recents posts
+<?php endif; ?>
+

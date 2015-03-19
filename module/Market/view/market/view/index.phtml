@@ -1,2 +1,26 @@
-<h1>Category</h1>
-<?php echo $this->escapeHtml($this->category); ?>
+<h1>OnlineMarket <small><?php echo $category; ?> items</small></h1>
+<?php if($this->listings instanceof Zend\Db\ResultSet\ResultSet): ?>
+	<div class="row">
+		<?php foreach ($listings as $list): ?>
+	        <div class="col-sm-4 col-lg-4 col-md-4">
+
+	            <div class="thumbnail">
+	                <img src="<?php echo $list['photo_filename']; ?>" width="300" height="250" />
+	                <div class="caption">
+	                    <h4 class="pull-right">$<?php echo  (float) $list['price']; ?></h4>
+	                    <h4>
+	                    	<a href="<?php echo $this->url('market/view/item', ['itemId' => (int) $list['listings_id']]); ?>">
+	                    		<?php echo  $this->escapeHtml($list['title']); ?>
+	                    	</a>
+	                    </h4>
+	                    <p></p>
+	                </div>
+	               
+	            </div>
+	        </div>
+	    <?php endforeach;?>
+ </div>
+<?php else: ?>
+	<?php Zend\Debug\Debug::dump($this->list); ?>
+<?php endif; ?>
+

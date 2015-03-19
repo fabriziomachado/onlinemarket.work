@@ -1,0 +1,38 @@
+<h1><?php echo $this->escapeHtml($this->category); ?><small>category</small></h1>
+
+
+<?php if($this->listings instanceof Zend\Db\ResultSet\ResultSet): ?>
+
+
+	<table class="table table-striped">
+		<tr>
+			<th>Item</th>
+			<th>Price</th>
+			<th></th>
+			<th>Posted</th>
+		</tr>
+
+		<?php foreach ($listings as $list): ?>
+			<tr style="background-color:<?php echo $this->cycle(['#F9A770','#FAC769','#FAAE58'])->next(); ?>">
+				<td>
+					<a href="<?php echo $this->url('market/view/item', ['itemId' => (int) $list['listings_id']]); ?>">
+						<?php echo  $this->escapeHtml($list['title']); ?>
+					</a>	
+				</td>
+				<td><?php echo  $this->escapeHtml((float) $list['price']); ?></td>
+				<td><?php #echo $list['title']; ?></td>
+				<td><?php echo  $this->escapeHtml($list['date_created']); ?></td>
+			</tr>
+			<?php #$this->listings->next(); ?>
+		<?php endforeach;?>
+
+
+	</table>
+
+
+	
+
+
+<?php else: ?>
+	<?php Zend\Debug\Debug::dump($this->list); ?>
+<?php endif; ?>

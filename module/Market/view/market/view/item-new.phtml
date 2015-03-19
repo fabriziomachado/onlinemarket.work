@@ -1,0 +1,46 @@
+<div class="thumbnail">
+    <img src="/images/<?php echo $this->item->category; ?>/<?php echo $this->item->photo_filename; ?>" class="img-responsive" />
+    <div class="caption-full">
+        <h4 class="pull-right">$<?php echo  (float) $this->item->price; ?></h4>
+        <h4><a href="#"><?php echo  $this->escapeHtml(ucwords($this->item->title)); ?></a></h4>
+        <p><?php echo  $this->escapeHtml($this->item->description); ?></p>
+    </div>
+</div>
+
+
+
+
+<?php if($this->item): ?>
+	<h3><?php echo  $this->escapeHtml(ucwords($this->item->title)); ?></h3>
+
+	<div style="width:250px;float:left;">
+		<?php if($this->item->photo_filename): ?>
+			<img src="/images/<?php echo $this->item->category; ?>/<?php echo $this->item->photo_filename; ?>" class="img-thumbnail" />
+		<?php else: ?>
+			Sem imagem	
+		<?php endif; ?>		
+	</div>
+
+	<div style="width:250px;float:left;margin:20px">
+		<address>
+		  <strong><?php echo  $this->escapeHtml($this->item->contact_name); ?></strong><br>
+		   <?php echo  $this->escapeHtml($this->item->city); ?>, <?php echo  $this->escapeHtml($this->item->country); ?><br>
+		  <abbr title="Phone">P:</abbr> <?php echo  $this->escapeHtml($this->item->contact_phone); ?>
+		</address>
+		<address>
+		  <strong><?php echo  $this->escapeHtml($this->item->contact_name); ?></strong><br>
+		  <a href="mailto:#"><?php echo  $this->escapeHtml($this->item->contact_email); ?></a>
+		</address>
+
+		<h4>Posting details</h4>
+		<p><?php echo  $this->escapeHtml($this->item->data_cereated); ?></p>
+		<p>Price: <?php echo  $this->escapeHtml($this->item->price); ?></p>
+		<p>City: <?php echo  $this->escapeHtml($this->item->city); ?>, <?php echo  $this->escapeHtml($this->item->country); ?></p>
+
+		<h4>Description</h4>
+		<p><?php echo  $this->escapeHtml($this->item->description); ?></div></p>
+	</div>
+<?php else: ?>
+	No recents posts
+<?php endif; ?>
+

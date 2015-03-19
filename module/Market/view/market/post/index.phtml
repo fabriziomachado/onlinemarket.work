@@ -1,11 +1,12 @@
 <h1>Post Controller with Factory</h1>
 <style>
 	label {
-		width: 200px;
+		width: 600px;
 	}
 </style>
 
 <?php $this->postForm->prepare(); ?>
+
 <?php echo $this->form()->openTag($this->postForm); ?>
 <?php echo $this->formCollection($this->postForm); ?>
 <?php echo $this->form()->closeTag(); ?>

@@ -67,7 +67,7 @@ return array(
                     'post' => [
                         'type' => 'Segment',
                         'options' => [
-                            'route'    => '/post[/]',
+                            'route'    => 'post[/]',
                             'defaults' => [
                                 'controller' => 'market-post-controller',
                                 'action'     => 'index',
@@ -98,13 +98,25 @@ return array(
     'service_manager' => array(
         'factories' => array(
             # controllers
-            'market-post-form'   => 'Market\Factory\PostFormFactory',
+            'market-post-form'   => 'Market\Factory\PostFormFactory',            
             'market-post-filter' => 'Market\Factory\PostFilterFactory',
+
+            #'market-expire-days' => 'Market\Factory\PostFormFactory',
+            #'market-captcha-options' => 'Market\Factory\PostFormFactory',
+
             
             # Models
             'general-adapter'    => 'Zend\Db\Adapter\AdapterServiceFactory',
             'listings-table'     => 'Market\Factory\ListingsTableFactory',
 
+        ),
+
+         'services' => array(
+            'market-expire-days' => array(
+                '10',
+                '20',
+                '30',
+            )
         ),
     ),
 

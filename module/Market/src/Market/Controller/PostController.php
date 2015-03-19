@@ -13,7 +13,7 @@ class PostController extends AbstractActionController
 
 
 	public function setPostForm($postForm)
-	{
+	{ 
 		$this->postForm = $postForm;
 	}
 
@@ -26,14 +26,21 @@ class PostController extends AbstractActionController
     public function indexAction()
     {
     	$data = $this->params()->fromPost();
-    	$view = new ViewModel( ['postForm' => $this->postForm , 'data' => $data] );
+    	//$data = $this->getRequest()->getPost();
+    	$view = new ViewModel( ['postForm' => $this->postForm , 
+    							'data' => $data] );
+    	
     	$view->setTemplate('market/post/index.phtml');
 
     	if( $this->getRequest()->isPost() )
     	{
     		$this->postForm->setData($data);
+
     		if($this->postForm->isValid())
     		{
+
+    			$this->listingsTable->addPosting($this->postForm->getData());
+
     			$this->flashMessenger()->addMessage("Tanks for posting!");
     			$this->redirect()->toRoute('home');
 	    	}

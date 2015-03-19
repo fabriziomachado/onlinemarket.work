@@ -14,19 +14,19 @@ class IndexController extends AbstractActionController
     private $messages;
 
     public function __construct() {
-        $this->messages = ['Welcome to Online Market ZF2'];
+        # $this->messages = ['Welcome to Online Market ZF2'];
     }
 
     public function indexAction()
     {
-
-
     	if( $this->flashMessenger()->hasMessages() )
     	{
     		$this->messages = $this->flashMessenger()->getMessages();
     	} 
 
-        return ['messages' => $this->messages ]; 
+        $recentItem = $this->listingsTable->getMostRecentListing();
+
+        return ['messages' => $this->messages, 'item' => $recentItem ]; 
 
     }
 

@@ -8,15 +8,15 @@ use Market\Form\PostFilter;
 
 
 class PostFilterFactory implements FactoryInterface
-{	
-	public function createService(ServiceLocatorInterface $serviceManager)
-    {
- 		 $categories = $serviceManager->get('categories');
+{
+	public function createService(ServiceLocatorInterface $sm)
+	{
+		$filter = new PostFilter();
 
-         $filter = new PostFilter();
-         $filter->setCategories($categories);
-         $filter->buildFilter();
-
-        return $filter;
-    }
+		$filter->setCategories($sm->get('categories'));
+		$filter->setExpireDays($sm->get('market-expire-days'));
+		$filter->buildFilter();
+		
+		return $filter;
+	}
 }

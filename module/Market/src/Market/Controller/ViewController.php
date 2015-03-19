@@ -13,12 +13,16 @@ class ViewController extends AbstractActionController
     {
     	$category = $this->params()->fromRoute("category") ?: 'undefined category';
 
-        return new ViewModel( ['category' => $category ] );
+        $listings = $this->listingsTable->getListingsByCategory($category);
+
+        return new ViewModel( ['category' => $category , 'listings' => $listings ] );
     }
 
     public function itemAction()
     {
     	$itemId = $this->params()->fromRoute("itemId");
+
+        $item = $this->listingsTable->getListingsById($itemId);
 
     	if(!$itemId)
     	{
@@ -26,7 +30,7 @@ class ViewController extends AbstractActionController
     		$this->redirect()->toRoute('market');
     	} 
 
-        return new ViewModel( ['itemId' => $itemId ] );
+        return new ViewModel( ['itemId' => $itemId , 'item' => $item ] );
     }
 
 }
