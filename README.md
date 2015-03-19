@@ -23,6 +23,12 @@ Using docker image
     $ sudo docker exec zf php composer.phar require bjyoungblood/bjy-profiler:dev-master
 
 
+
+Using ZF2 Form Generator
+-------------------------
+    http://zend-form-generator.123easywebsites.com/
+
+
 Using Composer (recommended)
 ----------------------------
 The recommended way to get a working copy of this project is to clone the repository
